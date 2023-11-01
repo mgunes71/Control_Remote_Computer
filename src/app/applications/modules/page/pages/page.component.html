@@ -1,0 +1,48 @@
+<div class="row bg-dark">
+  <div class="col-sm-12 col-md-8 col-lg-6 p-3" style="border: 1px solid black">
+    <div class="bg-dark">
+      <div class="row align-items-center p-0">
+        <div class="col-6">
+          <mat-select style="border: 1px solid white"  class="bg-dark p-3"  [value]="defaultPage?.id">
+            <mat-option class="text-black" style="background-color: whitesmoke; border: 1px solid black; padding: 10px"  (click)="setActivePage(page)" *ngFor="let page of pages" [value]="page?.id">{{page.name}}</mat-option>
+          </mat-select>
+        </div>
+        <div class="example-button-row col-6">
+          <button (click)="createPage()" class="bg-dark"  style="height: 56px; border-radius: 0" mat-raised-button><i class="fas fa-plus"></i></button>
+          <button (click)="deletePage(activePage?.id)" class="bg-dark"  style="height: 56px; border-radius: 0" mat-raised-button><i class="fas fa-trash"></i></button>
+          <button class="bg-dark"  style="height: 56px; border-radius: 0" mat-raised-button [matMenuTriggerFor]="menu"><i class="fas fa-cog"></i></button>
+
+          <mat-menu #menu="matMenu">
+            <button (click)="setDefaultPage(activePage?.id)" mat-menu-item>Set Default Page</button>
+            <button (click)="updatePage(activePage?.id)" mat-menu-item>Rename Page</button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="">
+        <div class="text-right ">
+          <i (click)="createButton()" class="fas fa-plus"></i>
+        </div>
+        <div class="row">
+          <div class="mt-2" *ngFor="let box of boxes" [ngClass]="setCol()">
+            <div routerLink="/box/{{activePage?.id}}/{{box?.id}}" [ngStyle]="{'background': box?.background, 'color': box?.color}" class="small-box">
+              <div class="inner">
+                <h3>{{box?.text}}</h3>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a  class="small-box-footer">Details <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+<!--          <div class="mt-2" *ngFor="let box of boxes" [ngClass]="setCol()">-->
+<!--            <button routerLink="/box/{{activePage?.id}}/{{box?.id}}" [ngStyle]="{'background': box?.background, 'color': box?.color}" class="btn action-button w-100">{{box?.text}}</button>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4" style="border: 1px solid black">
+    Settings
+  </div>
+</div>

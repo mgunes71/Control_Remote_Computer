@@ -1,0 +1,28 @@
+<div class="wrapper bg-dark">
+
+  <app-header></app-header>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper bg-dark">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="col-12 p-0">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <div class="w-100 d-flex justify-content-start my-3 p-3">
+      <h1 class="btn btn-danger" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout</h1>
+    </div>
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+
+

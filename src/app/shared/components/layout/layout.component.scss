@@ -1,0 +1,15 @@
+:host {
+  display: contents;
+
+  .activeRoute {
+    background: darkgray;
+    color: black !important;
+  }
+
+  .btn {
+    border-radius: 0;
+    &:hover {
+      background: darkslategray !important;
+    }
+  }
+}

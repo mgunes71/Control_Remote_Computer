@@ -1,0 +1,11 @@
+:host {
+  display: contents;
+
+  .action-button {
+    height: 150px;
+  }
+
+  .mat-mdc-select-panel {
+    padding: 0 !important;
+  }
+}
