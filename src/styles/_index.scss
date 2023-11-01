@@ -1,0 +1,20 @@
+@import "reset";
+@import "variables/index";
+@import "components/index";
+
+
+.bg-bb-dark {
+  background: $bb-dark;
+}
+
+.bg-green {
+  background: $green;
+}
+
+.bg-box {
+  background: $component-bg-color;
+}
+
+.pointer {
+  cursor: pointer;
+}

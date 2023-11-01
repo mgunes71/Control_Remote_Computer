@@ -1,0 +1,31 @@
+
+body {
+  background-color: #eaecef !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+
+:root {
+  color: #000000;
+
+
+  --component-bg-color: #292d34;
+
+  .dataTables_filter {
+    display: none;
+  }
+
+  .mat-select-content{
+    width:200px;
+    background-color: red;
+    font-size: 10px;
+  }
+
+  .mat-mdc-select-panel {
+    padding: 0 !important;
+  }
+
+  .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+    color: black !important;
+  }
+}

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "theme/variables";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+$theme-colors: (
+  "primary": #00004b,
+  "danger": #ffffff
+);
+
+.mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align::before {
+  display: none !important;
+}
+
+.mdc-text-field--filled {
+  border-radius: 0 !important;
+}
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import 'ngx-toastr/toastr';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import 'simple-keyboard/build/css/index.css';
+@import "styles/index";
