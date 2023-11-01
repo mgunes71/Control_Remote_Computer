@@ -1,0 +1,80 @@
+<div class="bg-dark h-100 p-3">
+  <div>
+    <button (click)="deleteBox()"><i class="fas fa-trash"></i></button>
+  </div>
+  <div class="text-center">
+    <button *ngIf="(!boxDetail.text) && (!boxDetail.backgroundColor) && (!boxDetail.textColor)" [ngStyle]="{'background': box?.background, 'color': box?.color}" class="btn p-5 mb-2">{{box?.text}}</button>
+    <button *ngIf="boxDetail.text || boxDetail.backgroundColor || boxDetail.textColor" [ngStyle]="{'background': boxDetail?.backgroundColor, 'color': boxDetail?.textColor}" class="btn p-5 mb-2">{{boxDetail?.text}}</button>
+  </div>
+  <mat-button-toggle-group class="w-100" value="onPress">
+    <mat-button-toggle class="w-100 bg-dark" value="onPress" (click)="activeActionMenu('onPress')">On Pressed
+    </mat-button-toggle>
+    <mat-button-toggle class="w-100 bg-dark" value="onEvent" (click)="activeActionMenu('onEvent')">On Event
+    </mat-button-toggle>
+    <mat-button-toggle class="w-100 bg-dark" value="onHold" (click)="activeActionMenu('onHold')">On Hold
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div *ngIf="actionType === 'onPress'" class="d-flex flex-column mt-2" id="onPress">
+    <div class="mt-2" >
+      <ng-container *ngFor="let config of boxConfig">
+        <div [matMenuTriggerFor]="menu" *ngIf="config?.type === '0'" class="d-flex">
+          <p class="bg-primary p-3">{{config?.title}}</p>
+          <p class="bg-info p-3">{{config.value}}</p>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editConfig(config.boxId, config?.id)">Edit</button>
+            <button mat-menu-item (click)="deleteConfig(config?.id)">Delete</button>
+          </mat-menu>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="actionType === 'onPress'">
+      <div class="d-flex align-items-center mt-2" *ngFor="let count of customInputCount">
+        <app-action-input [label]="label" (inputValue)="takeValue($event)"></app-action-input>
+        <button [disabled]="!configActionValue"><i (click)="save('0')" class="fas fa-check"></i></button>
+        <button><i (click)="deleteInput()" class="fas fa-times"></i></button>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div *ngIf="actionType === 'onEvent'" class="d-flex flex-column" id="onEvent">
+    <div class="mt-2">
+      <ng-container *ngFor="let config of boxConfig">
+        <div [matMenuTriggerFor]="menu" *ngIf="config?.type === '1'" class="d-flex">
+          <p class="bg-warning p-3">{{config?.title}}</p>
+          <p class="bg-info p-3">{{config.value}}</p>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editConfig(config.boxId, config?.id)">Edit</button>
+            <button mat-menu-item (click)="deleteConfig(config?.id)">Delete</button>
+          </mat-menu>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="actionType === 'onEvent'">
+      <div class="d-flex align-items-center mt-2" *ngFor="let count of customInputCount">
+        <app-action-input [bg]="'bg-warning'" [label]="label" (inputValue)="takeValue($event)"></app-action-input>
+        <button [disabled]="!configActionValue"><i (click)="save('1')" class="fas fa-check"></i></button>
+        <button><i (click)="deleteInput()" class="fas fa-times"></i></button>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="actionType === 'onHold'" class="d-flex flex-column" id="onHold">
+    <div class="d-flex m-2" [matMenuTriggerFor]="menu">
+      <p class="bg-primary p-3">Hold text event</p>
+      <p class="bg-info p-3">ctrl</p>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Edit</button>
+      <button mat-menu-item>Delete</button>
+    </mat-menu>
+  </div>
+</div>
+<div class="col-12 bg-dark p-0 mt-2">
+  <div class="w-100 d-flex">
+    <button routerLink="/pages" class="btn btn-danger w-100">Cancel</button>
+    <button [disabled]="!boxDetail.text" (click)="updateBox()" class="btn btn-success w-100">Save</button>
+  </div>
+</div>
+

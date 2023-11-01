@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Create Box</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="">
+    <div class="mb-3 bg-dark">
+      <app-text-input placeholder="Name" formControlName="text"></app-text-input>
+    </div>
+    <div class="mb-3 bg-dark">
+      <app-text-input placeholder="Background" formControlName="background"></app-text-input>
+    </div>
+    <div class="mb-3 bg-dark">
+      <app-text-input placeholder="Color" formControlName="color"></app-text-input>
+    </div>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="form.value">Add</button>
+</div>

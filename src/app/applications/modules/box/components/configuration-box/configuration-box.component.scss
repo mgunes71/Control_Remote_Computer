@@ -1,0 +1,12 @@
+:host {
+  display: contents;
+
+  .mat-button-toggle-checked {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .bg-event {
+    background: goldenrod;
+  }
+}

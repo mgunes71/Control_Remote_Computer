@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div class="text-black" style="text-align:center">-->
+<!--  <input (input)="onInputChange($event)" class="input" [value]="value" placeholder="Tap on the virtual keyboard to start" />-->
+<!--  <div class="keyboardContainer">-->
+<!--    <div class="simple-keyboard-main"></div>-->
+
+<!--    <div class="controlArrows">-->
+<!--      <div class="simple-keyboard-control"></div>-->
+<!--      <div class="simple-keyboard-arrows"></div>-->
+<!--    </div>-->
+
+<!--    <div class="numPad">-->
+<!--      <div class="simple-keyboard-numpad"></div>-->
+<!--      <div class="simple-keyboard-numpadEnd"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div mat-dialog-content>
+  <div class="text-black" style="text-align:center">
+    <div class="d-flex justify-content-center align-items-center">
+      <ng-container *ngFor="let key of keys; let i = index">
+        <button class="btn btn-outline-light" style="color: black !important;">{{key}}</button>
+        <i *ngIf="i < keys.length - 1" class="fas fa-plus"></i>
+      </ng-container>
+      <button class="btn btn-outline-warning " (click)="clearInput()">Clear</button>
+    </div>
+    <div class="keyboardContainer">
+      <div class="simple-keyboard-main"></div>
+
+      <div class="controlArrows">
+        <div class="simple-keyboard-control"></div>
+        <div class="simple-keyboard-arrows"></div>
+      </div>
+
+      <div class="numPad">
+        <div class="simple-keyboard-numpad"></div>
+        <div class="simple-keyboard-numpadEnd"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <div class="w-100 d-flex">
+    <button class="w-100 bg-danger" mat-button (click)="onNoClick()">Cancel</button>
+    <button class="w-100 btn bg-success" mat-button [mat-dialog-close]="keys">Save</button>
+  </div>
+</div>
+<input style="opacity: 0" (input)="onInputChange($event)" class="input" [value]="value" placeholder="Tap on the virtual keyboard to start" />

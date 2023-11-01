@@ -1,0 +1,8 @@
+:host {
+  display: contents;
+
+  .dropdown-item:focus, .dropdown-item:hover {
+    background: gray;
+  }
+}
+
