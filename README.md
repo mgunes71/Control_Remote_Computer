@@ -14,14 +14,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Note
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To use OBS, make sure that the obs websocket port is connected to 4455 from the obs settings.
 
-## Running end-to-end tests
+## General Use
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1 - You can switch between obs pages.
+2 - You can remotely manage applications that require Discord or any keyboard combination.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For example: Let the Discord mute key be shift + home keys. After defining these combinations in a box in the settings menu, all you have to do is just click on the Remote page.
+The rest of the settings are just up to you.

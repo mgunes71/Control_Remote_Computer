@@ -1,0 +1,16 @@
+<div #inputContainer class="text-input-container align-items-center justify-content-between w-100">
+  <div class="d-flex align-items-center trade-input-left w-100">
+    <div class="trade-input-left-input d-flex bg-light m-2">
+      <p class="mb-0 bg-info p-3">{{label}}</p>
+      <input class="{{bg}} p-3" [type]="type" autocapitalize="off" autocomplete="off"
+             [value]="value"
+             (focusin)="inputContainer.classList.add('active')"
+             (focusout)="loseFocus()"
+             [placeholder]="placeholder"
+             (input)="onValueChange($event)">
+      <!--(change)="onValueChange($event)">-->
+    </div>
+<!--    <i *ngIf="canClear() && inputContainer.classList.contains('active')" (click)="clear()"-->
+<!--       class="clear-icon text-white fa fa-times-circle mx-3"></i>-->
+  </div>
+</div>

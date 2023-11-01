@@ -1,0 +1,23 @@
+<div #inputContainer class="text-input-container align-items-center justify-content-between w-100">
+  <div class="d-flex align-items-center trade-input-left w-100">
+    <div class="trade-input-left-input w-100">
+      <input [type]="type" autocapitalize="off" autocomplete="off"
+             [value]="value"
+             (focusin)="inputContainer.classList.add('active')"
+             (focusout)="loseFocus()"
+             [placeholder]="placeholder"
+             (input)="onValueChange($event)">
+      <!--(change)="onValueChange($event)">-->
+    </div>
+    <i *ngIf="canClear() && inputContainer.classList.contains('active')" (click)="clear()"
+       class="clear-icon text-white fa fa-times-circle mx-3"></i>
+  </div>
+  <ng-container *ngIf="label">
+    <label>
+      <ng-container *ngIf="isTemplate(label); else: textLabel">
+        <ng-container [ngTemplateOutlet]="label"></ng-container>
+      </ng-container>
+      <ng-template #textLabel>{{label}}</ng-template>
+    </label>
+  </ng-container>
+</div>
