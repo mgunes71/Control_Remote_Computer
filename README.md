@@ -21,6 +21,7 @@ To use OBS, make sure that the obs websocket port is connected to 4455 from the 
 ## General Use
 
 1 - You can switch between obs pages.
+
 2 - You can remotely manage applications that require Discord or any keyboard combination.
 
 For example: Let the Discord mute key be shift + home keys. After defining these combinations in a box in the settings menu, all you have to do is just click on the Remote page.
