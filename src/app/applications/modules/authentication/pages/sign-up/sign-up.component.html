@@ -1,0 +1,38 @@
+<div class="container-fluid vh-100">
+
+  <!-- Outer Row -->
+  <div class="row h-100 justify-content-center align-items-center bg-black">
+    <div class="col-6 col-lg-7 col-xl-7 bg-login-image p-0"></div>
+    <div class="col-6 col-lg-4 col-xl-3">
+      <div class="p-5">
+        <div class="text-center">
+          <h1 class="h4 text-gray-900 mb-4">Welcome Back! Login Page</h1>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="signUp()" class="user">
+          <div class="mb-3">
+            <app-text-input placeholder="E-mail" formControlName="email"></app-text-input>
+          </div>
+          <div class=" mb-3">
+            <app-password-input placeholder="Password" formControlName="password"></app-password-input>
+            <p class="text-danger" *ngIf="(password?.invalid && (password?.dirty || password?.touched ))">Password invalid syntax</p>
+          </div>
+          <div class="mb-3">
+            <app-password-input formControlName="confirmPassword"  placeholder="Re-Password"></app-password-input>
+            <p class="text-danger" *ngIf="(confirm_password?.invalid && (confirm_password?.dirty || confirm_password?.touched ))">Password not match</p>
+          </div>
+          <div class="d-flex justify-content-between flex-column">
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block mb-3">
+              Sing Up
+            </button>
+            <p>
+              Do you have an account?
+              <a routerLink="/authentication/sign-in" class="link-text text-warning ms-2">Sing In</a>
+            </p>
+          </div>
+        </form>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+</div>
